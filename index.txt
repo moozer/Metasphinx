@@ -1,0 +1,33 @@
+.. metasphinx documentation master file, created by
+   sphinx-quickstart on Sat Nov  2 16:23:08 2013.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to metasphinx's documentation!
+======================================
+
+This documentation is all about `metaconfig <http://metaconfig.com>`_
+
+Stuff to come
+-------------
+* Examples
+* Adpatation of `obsolete pdf <http://www.metaconfig.com/documents/getting-started-with-metaconfig.pdf>`_
+* rundown of
+	* Settings and template files
+	* import/modify
+	* apt
+	* unixuser
+
+
+.. toctree::
+   :maxdepth: 2
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
