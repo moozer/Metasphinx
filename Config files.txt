@@ -1,0 +1,53 @@
+Config files
+============
+
+As part of the configuration, for all nodes and modules, a file named _config_ is used.
+
+
+import
+------
+
+Imports a module from /etc/metaconfig/res
+
+
+modify
+------
+
+??
+
+Special commands and variables
+------------------------------
+
+#debian package handling#
+
+[apt]
+install += "some package"
+remove += "someotherpackage"
+
+# unix users #
+
+# file ownership and permissions #
+
+
+# Vars #
+
+from profile/standard
+if PLATFORM_OS_NAME in ["debian", "ubuntu"]
+  import "public/config/debian-logrotate"
+  import "public/config/kernel-img"
+  import "public/config/hostname"
+  import "public/config/locale"
+end
+
+from profile/minimal
+[files]
+# Set executable permission for standard dirs for binaries
+permission["/etc/initramfs-tools/hooks/*"] = "0755"
+permission["/etc/init.d/*"] = "0755"
+permission["/etc/cron.hourly/*"] = "0755"
+permission["/etc/cron.daily/*"] = "0755"
+permission["/etc/cron.weekly/*"] = "0755"
+permission["/etc/cron.monthly/*"] = "0755"
+permission["/usr/local/bin/*"] = "0755"
+permission["/root"] = "0700"
+

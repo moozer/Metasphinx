@@ -19,9 +19,32 @@ Stuff to come
 	* unixuser
 
 
+Notes
+-----
+
+Adding apt keys (from Metaconfig_mozrepo/service/iceweasel_latest_esr/config)
+-----------------------------------------------------------------------------
+
+[apt.source.debian_mozilla]
+url = "http://mozilla.debian.net/"
+dist = "wheezy-backports"
+components = ["iceweasel-esr"]
+keys += "A6AA8C72"
+
+
+Setting static IP
+-----------------
+
+import "mozrepo/config/networks"
+
+[settings.mozrepo/config/network]
+iface["eth0"] = dict( type="static", address="10.0.0.123", netmask="255.255.0.0", gateway="10.0.0.1" )
+
+
 .. toctree::
    :maxdepth: 2
 
+   Control structures
 
 
 Indices and tables

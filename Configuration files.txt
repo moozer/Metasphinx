@@ -1,0 +1,47 @@
+Configuration files
+===================
+
+As part of the configuration, it is possible to add files.
+
+It must be place in the files subdirectory
+
+example from the ntp package
+
+.. code-block:: bash
+   :linenos:
+
+   $ tree ntp
+   ntp
+   ├── config
+   └── files
+       └── etc
+           └── ntp.conf
+
+in the files adding %header("##") adds the metaconfig warning header.
+
+The "##" part is the comment signs to use. For some config files ";" or "--" would be appropriate
+
+
+Pound sign
+---------
+
+To make the sign #, use %#.
+
+
+command: define
+---------------
+
+define a variable to be used later in the config
+
+example usage
+.. code-block:: bash
+   :linenos:
+
+   #define vname "drupal.example.org"
+   SomeVar = %(vname)
+
+Commands
+--------
+
+ define, import, method
+

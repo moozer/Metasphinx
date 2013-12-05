@@ -1,0 +1,81 @@
+Config variables
+=================
+
+In the config files different variable type are allowed.
+
+example
+
+.. code-block:: python
+   :linenos:
+
+   [settings]
+   AnInteger = 12
+   AString = "This is a string"
+   AnArray = [1,2,3,4,5]
+   ADictionary = dict( a = 2, b = "C" )
+
+
+
+in an included file, say files/etc/resolv.conf
+
+.. code-block:: python
+   :linenos:
+
+   %header("##")
+
+   #foreach ns in nameservers
+      nameservers = %(ns)
+   #end
+
+   
+
+if and else
+-----------
+
+if-else branching is done like this
+
+.. code-block:: python
+   :linenos:
+
+   [settings]
+   enable_logging = 1
+
+
+in an included file, say files/etc/resolv.conf
+
+.. code-block:: python
+   :linenos:
+
+   %header("##")
+
+   #if enable_logging
+      logging = 1
+   #else
+      logging = 0
+   #end
+
+or, if _logging_ is default disabled, leave out the explicit _logging_ line.
+
+.. code-block:: python
+   :linenos:
+
+   %header("##")
+
+   #if enable_logging
+      logging = 1
+   #end
+
+
+Troubleshooting
+---------------
+
+.. code-block:: bash
+   :linenos:
+
+   # metaconfig    
+   [E] Lexer error at (<some file name>: line n, column m): Command token expected but EOL found
+   [F] Too many errors, aborting compilation
+
+
+
+

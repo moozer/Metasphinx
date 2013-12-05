@@ -1,0 +1,123 @@
+Control structure
+=================
+
+Control structures and how they are used in data files
+
+foreach
+-------
+
+The minimal example
+
+in _config_
+
+.. code-block:: python
+   :linenos:
+
+   [settings]
+   nameservers = ["192.168.1.1", "8.8.8.8"]
+
+
+in an included file, say files/etc/resolv.conf
+
+.. code-block:: python
+   :linenos:
+
+   %header("##")
+
+   #foreach ns in nameservers
+      nameservers = %(ns)
+   #end
+
+A foreach example using a dictionary
+
+.. code-block:: python
+   :linenos:
+
+   crontab["example"] = dict(
+                enabled = 0,
+                min     = "0",
+                hour    = "*",
+                day     = "*",
+                month   = "*",
+                weekday = "*",
+                user    = "nobody",
+                command = "echo foo"
+            )
+
+using the variable
+
+.. code-block:: python
+   :linenos:
+
+   %header("##")
+   SHELL="%(shell)"
+   PATH="%(path)"
+   MAILTO="%(mailto)"
+   %# min  hour  day  month  weekday  user    command
+   #foreach ct in crontab
+     #if crontab[ct]["enabled"]
+         %(crontab[ct]["min"])    %(crontab[ct]["hour"])     %(crontab[ct]["day"])    %(crontab[ct]["month"])      %(crontab[ct]["weekday"])        %(crontab[ct]["user"])  %(crontab[ct]["command"])
+     #end
+   #end
+
+
+if and else
+-----------
+
+if-else branching is done like this
+
+.. code-block:: python
+   :linenos:
+
+   [settings]
+   enable_logging = 1
+
+
+in an included file, say files/etc/resolv.conf
+
+.. code-block:: python
+   :linenos:
+
+   %header("##")
+
+   #if enable_logging
+      logging = 1
+   #else
+      logging = 0
+   #end
+
+or, if _logging_ is default disabled, leave out the explicit _logging_ line.
+
+.. code-block:: python
+   :linenos:
+
+   %header("##")
+
+   #if enable_logging
+      logging = 1
+   #end
+
+To test if a dictionary contains a specific key
+
+.. code-block:: python
+   :linenos:
+
+   #if "max_days" in params
+      SomethignWithDays = %(params["max_days"])
+   #end
+
+
+
+Troubleshooting
+---------------
+
+.. code-block:: bash
+   :linenos:
+
+   # metaconfig    
+   [E] Lexer error at (<some file name>: line n, column m): Command token expected but EOL found
+   [F] Too many errors, aborting compilation
+
+
+
+
