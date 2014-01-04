@@ -3,6 +3,18 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+
+
+.. toctree::
+   :maxdepth: 2
+
+   Control structures
+   Configuration files
+   Config variables
+   Config files
+   Apt
+
+
 Welcome to metasphinx's documentation!
 ======================================
 
@@ -40,11 +52,6 @@ import "mozrepo/config/networks"
 [settings.mozrepo/config/network]
 iface["eth0"] = dict( type="static", address="10.0.0.123", netmask="255.255.0.0", gateway="10.0.0.1" )
 
-
-.. toctree::
-   :maxdepth: 2
-
-   Control structures
 
 
 Indices and tables
