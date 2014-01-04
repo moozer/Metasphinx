@@ -1,0 +1,39 @@
+.. metasphinx documentation master file, created by
+   sphinx-quickstart on Sat Nov  2 16:23:08 2013.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Apt
+===
+
+Apt is the pacakge handling system of debian and its derivatives, like ubuntu.
+
+Adding and removing packages
+----------------------------
+
+In the config file, instruct metaconfig to install certain pacakages, and to remove certain packages (if they are installed).
+
+[apt]
+install += "somepackage"
+install += ["a", "list", "of", "packages"]
+
+remove += "Someotherpackage"
+remove += ["a", "list", "of", "packages", "no", "to", "be", "on", "the", "system"]
+
+If bad package names are used, metaconfig will return with an error.
+
+Note that, before installing, metaconfig will update the repositories (as in run "apt-get update")
+
+
+Adding apt keys (from Metaconfig_mozrepo/service/iceweasel_latest_esr/config)
+-----------------------------------------------------------------------------
+
+Apt repositories has signing keys, and metaconfig will normalæy fail if packages cannot be validated.
+
+[apt.source.debian_mozilla]
+url = "http://mozilla.debian.net/"
+dist = "wheezy-backports"
+components = ["iceweasel-esr"]
+keys += "A6AA8C72"
+
+TODO: how to find these keys?
