@@ -4,6 +4,10 @@
    contain the root `toctree` directive.
 
 
+Welcome to metasphinx's documentation!
+======================================
+
+This documentation is all about `metaconfig <http://metaconfig.com>`_
 
 .. toctree::
    :maxdepth: 2
@@ -13,51 +17,23 @@
    Config variables
    Config files
    Apt
+   Howtos
 
+This is work-in-prgress
 
-Welcome to metasphinx's documentation!
-======================================
-
-This documentation is all about `metaconfig <http://metaconfig.com>`_
-
-Stuff to come
+Stuff missing
 -------------
-* Examples
-* Adpatation of `obsolete pdf <http://www.metaconfig.com/documents/getting-started-with-metaconfig.pdf>`_
+
+* Examples/howtos
+* Adaptation of `obsolete pdf <http://www.metaconfig.com/documents/getting-started-with-metaconfig.pdf>`_
 * rundown of
 	* Settings and template files
 	* import/modify
 	* apt
 	* unixuser
+* contact info
+* FAQ
+* some sort of overview and proper introduction
+* installation instructions
 
-
-Notes
------
-
-Adding apt keys (from Metaconfig_mozrepo/service/iceweasel_latest_esr/config)
------------------------------------------------------------------------------
-
-[apt.source.debian_mozilla]
-url = "http://mozilla.debian.net/"
-dist = "wheezy-backports"
-components = ["iceweasel-esr"]
-keys += "A6AA8C72"
-
-
-Setting static IP
------------------
-
-import "mozrepo/config/networks"
-
-[settings.mozrepo/config/network]
-iface["eth0"] = dict( type="static", address="10.0.0.123", netmask="255.255.0.0", gateway="10.0.0.1" )
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 
