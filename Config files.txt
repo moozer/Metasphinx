@@ -97,3 +97,23 @@ fra config/backup
    files += "/etc/exim4/*"
    files += "/etc/exim4/conf.d/*/*"
 
+# unix users and groups #
+from mozrepo/config/sysuser
+
+.. code-block:: python
+   :linenos:
+
+   [unixuser.sysuser]
+   uid = 1500
+   gid = 1500
+   gecos = ",,,"
+   home = "/home/sysuser"
+   shell = "/bin/bash"
+
+   groups_include += "adm"
+   groups_include += "sudo"
+   groups_include += "sysuser"
+
+   [unixgroup.sysuser]
+   gid=1500
+
