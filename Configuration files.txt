@@ -25,20 +25,25 @@ The "##" part is the comment signs to use. For some config files ";" or "--" wou
 Pound sign
 ---------
 
-To make the sign #, use %#.
+To show the sign # in a file, use %#.
+
+To have a comment in the file parsed by metaconfig, use ##
 
 
-command: define
----------------
+
+Defining variables
+------------------
 
 define a variable to be used later in the config
 
 example usage
+
 .. code-block:: bash
    :linenos:
 
    #define vname "drupal.example.org"
    SomeVar = %(vname)
+
 
 Commands
 --------

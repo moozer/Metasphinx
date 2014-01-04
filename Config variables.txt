@@ -66,16 +66,6 @@ or, if _logging_ is default disabled, leave out the explicit _logging_ line.
    #end
 
 
-Troubleshooting
----------------
-
-.. code-block:: bash
-   :linenos:
-
-   # metaconfig    
-   [E] Lexer error at (<some file name>: line n, column m): Command token expected but EOL found
-   [F] Too many errors, aborting compilation
-
 
 
 
